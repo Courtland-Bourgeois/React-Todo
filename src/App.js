@@ -1,19 +1,29 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import styled from 'styled-components';
 
-const todoList = [
-  {
-    task: 'Learn setState()',
-    id: 1,
-    completed: false
-  },
-  {
-    task: 'Style my Todo List',
-    id: 2,
-    completed: false
-  }
-]
+// const todoList = [
+//   {
+//     task: 'Learn setState()',
+//     id: 1,
+//     completed: false
+//   },
+//   {
+//     task: 'Style my Todo List',
+//     id: 2,
+//     completed: false
+//   }
+// ]
+
+const Header = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const Input = styled.div`
+  text-align: center;
+`
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -22,7 +32,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todoList: todoList,
+      todoList: [],
       newTask: ''
     }
   }
@@ -71,9 +81,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={this.state.todoList} toggleCompletedTask={this.toggleCompletedTask} />
-        <TodoForm handleChange={this.handleChange} value={this.state.newTask} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
+        <Header>
+          <h1>Welcome to your Tech-Todo App!</h1>
+        </Header>
+        <Input>
+          <TodoList todoList={this.state.todoList} toggleCompletedTask={this.toggleCompletedTask} />
+          <TodoForm handleChange={this.handleChange} value={this.state.newTask} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
+        </Input>
       </div>
     );
   }
