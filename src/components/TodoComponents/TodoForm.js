@@ -16,7 +16,7 @@ const TodoForm = (props) => {
   return (
     <Form>
       <Input>
-        <input 
+        <input class="form-control mr-sm-2"
           type="text"
           name="item"
           value={props.value}
