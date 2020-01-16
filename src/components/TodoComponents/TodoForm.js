@@ -1,10 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Form = styled.div`
+  display: flex
+  justify-content: center
+`
+
+const Input = styled.form`
+  display: flex
+  flex-direction: column
+`
 
 const TodoForm = (props) => {
 
   return (
-    <div>
-      <form>
+    <Form>
+      <Input>
         <input 
           type="text"
           name="item"
@@ -12,10 +23,10 @@ const TodoForm = (props) => {
           onChange={props.handleChange}
           placeholder="...todo"
         />
-        <button onClick={props.addTodo}>Add Todo</button>
-        <button onClick={props.clearCompleted}>Clear Completed</button>
-      </form>
-    </div>
+        <button onClick={props.addTodo} style={{ marginTop: '4%' }} type="button" class="btn btn-success">Add Todo</button>
+        <button onClick={props.clearCompleted} style={{ marginTop: '4%' }} type="button" class="btn btn-danger">Clear Completed</button>
+      </Input>
+    </Form>
   )
 }
 

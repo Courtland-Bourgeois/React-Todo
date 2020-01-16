@@ -1,20 +1,21 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import "bootswatch/dist/darkly/bootstrap.min.css";
 import styled from 'styled-components';
 
-// const todoList = [
-//   {
-//     task: 'Learn setState()',
-//     id: 1,
-//     completed: false
-//   },
-//   {
-//     task: 'Style my Todo List',
-//     id: 2,
-//     completed: false
-//   }
-// ]
+const todoList = [
+  {
+    task: 'Learn setState()',
+    id: 1,
+    completed: false
+  },
+  {
+    task: 'Style my Todo List',
+    id: 2,
+    completed: false
+  }
+]
 
 const Header = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todoList: [],
+      todoList: todoList,
       newTask: ''
     }
   }
@@ -56,7 +57,7 @@ class App extends React.Component {
     })
   }
 
-  toggleCompletedTask = (id) => {
+  toggleCompletedTask = id => {
     this.setState({
       todoList: this.state.todoList.map(item => {
         if (item.id === id) {
